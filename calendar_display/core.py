@@ -5,9 +5,20 @@ from oauth2client import file, client, tools
 import os
 import sys
 from dotenv import load_dotenv
+from dateutil.parser import parse
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = 'https://www.googleapis.com/auth/calendar.readonly'
+
+
+def datetime_from_google_dict(dt_dict):
+    if 'dateTime' in dt_dict:
+        dt = parse(dt_dict['dateTime'])
+    if 'date' in dt_dict:
+        dt = parse(dt_dict['date'])
+        dt = dt.replace(tzinfo=datetime.timezone.utc)
+    return dt
+
 
 def main():
     """Shows basic usage of the Google Calendar API.
@@ -36,6 +47,8 @@ def main():
                                               maxResults=10, singleEvents=True,
                                               orderBy='startTime').execute()
         events = events + events_result.get('items', [])
+
+    events.sort(key=lambda k: datetime_from_google_dict(k['start']))
 
     if not events:
         print('No upcoming events found.')
