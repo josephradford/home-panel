@@ -4,6 +4,7 @@ from httplib2 import Http
 from oauth2client import file, client, tools
 import os
 import sys
+from dotenv import load_dotenv
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = 'https://www.googleapis.com/auth/calendar.readonly'
@@ -25,9 +26,12 @@ def main():
     # Call the Calendar API
     now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
     print('Getting the upcoming 10 events')
-    events_result = service.events().list(calendarId='primary', timeMin=now,
-                                        maxResults=10, singleEvents=True,
-                                        orderBy='startTime').execute()
+
+    calendar_id = os.getenv("CALENDAR_ID")
+
+    events_result = service.events().list(calendarId=calendar_id, timeMin=now,
+                                          maxResults=10, singleEvents=True,
+                                          orderBy='startTime').execute()
     events = events_result.get('items', [])
 
     if not events:
@@ -40,5 +44,6 @@ def main():
 if __name__ == '__main__':
     # run in own directory
     os.chdir(os.path.dirname(sys.argv[0]))
+    load_dotenv()
     main()
 
