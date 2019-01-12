@@ -104,6 +104,6 @@ venv3/
 # mypy
 .mypy_cache/
 
-calendar/credentials\.json
 
-calendar/token\.json
+calendar_display/credentials\.json
+calendar_display/token\.json
