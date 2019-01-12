@@ -1,8 +1,9 @@
-from __future__ import print_function
 import datetime
 from googleapiclient.discovery import build
 from httplib2 import Http
 from oauth2client import file, client, tools
+import os
+import sys
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = 'https://www.googleapis.com/auth/calendar.readonly'
@@ -35,6 +36,9 @@ def main():
         start = event['start'].get('dateTime', event['start'].get('date'))
         print(start, event['summary'])
 
+
 if __name__ == '__main__':
+    # run in own directory
+    os.chdir(os.path.dirname(sys.argv[0]))
     main()
 
