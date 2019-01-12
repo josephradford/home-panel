@@ -27,12 +27,15 @@ def main():
     now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
     print('Getting the upcoming 10 events')
 
-    calendar_id = os.getenv("CALENDAR_ID")
+    # must be in ['x','y','z'] format
+    calendar_ids = eval(os.getenv("CALENDAR_IDS"))
 
-    events_result = service.events().list(calendarId=calendar_id, timeMin=now,
-                                          maxResults=10, singleEvents=True,
-                                          orderBy='startTime').execute()
-    events = events_result.get('items', [])
+    events = list()
+    for calendar_id in calendar_ids:
+        events_result = service.events().list(calendarId=calendar_id, timeMin=now,
+                                              maxResults=10, singleEvents=True,
+                                              orderBy='startTime').execute()
+        events = events + events_result.get('items', [])
 
     if not events:
         print('No upcoming events found.')
