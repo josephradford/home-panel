@@ -108,3 +108,5 @@ venv3/
 
 calendar_display/credentials\.json
 calendar_display/token\.json
+
+train_times/data/
