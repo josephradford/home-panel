@@ -6,6 +6,7 @@ stages:
 before_script:
     - "cd home-panel-app"
     - "dotnet restore"
+    - npm install
 
 build:
     stage: build
