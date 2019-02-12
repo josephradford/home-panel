@@ -1,12 +1,14 @@
 image: microsoft/dotnet:latest
 
+services:
+    - node:latest
+
 stages:
     - build
 
 before_script:
     - "cd home-panel-app"
     - "dotnet restore"
-    - npm install
 
 build:
     stage: build
