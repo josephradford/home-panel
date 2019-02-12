@@ -1,7 +1,4 @@
-image: microsoft/dotnet:latest
-
-services:
-    - node
+image: microsoft/aspnetcore-build:latest
 
 stages:
     - build
