@@ -1,9 +1,14 @@
 image: microsoft/aspnetcore-build:latest
 
+cache:
+    paths:
+    - node_modules/
+
 stages:
     - build
 
 before_script:
+    - npm install
     - "cd home-panel-app"
 
 build:
