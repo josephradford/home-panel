@@ -1,7 +1,5 @@
-image: microsoft/dotnet:latest
+image: microsoft/dotnet:2.1-aspnetcore-runtime
 
-services:
-    - node:latest
 
 stages:
     - build
@@ -9,6 +7,7 @@ stages:
 before_script:
     - "cd home-panel-app"
     - "dotnet restore"
+    - "npm install"
 
 build:
     stage: build
