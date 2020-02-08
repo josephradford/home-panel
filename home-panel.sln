@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "home-panel-app", "home-panel-app\home-panel-app.csproj", "{E74FA862-5DBB-4D3A-BD27-3326BBC00D23}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E74FA862-5DBB-4D3A-BD27-3326BBC00D23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E74FA862-5DBB-4D3A-BD27-3326BBC00D23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E74FA862-5DBB-4D3A-BD27-3326BBC00D23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E74FA862-5DBB-4D3A-BD27-3326BBC00D23}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A0CBF9D-40BE-474A-804C-ED6C92AA3850}
+	EndGlobalSection
+EndGlobal
